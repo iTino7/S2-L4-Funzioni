@@ -149,6 +149,16 @@ console.log(upperFirst("Oggi è una belissima giornata"));
  della stringa originale.
 */
 
+function cutString(str) {
+  let stringa = str.split("");
+  let removeFirstLetter = stringa.shift();
+  let removeLastLetter = stringa.pop();
+  let wordsJoin = stringa.join("");
+  return wordsJoin;
+}
+
+console.log(cutString("Ciao a tutti"));
+
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* ESERCIZIO 10
