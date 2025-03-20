@@ -57,7 +57,7 @@ console.log(crazyDiff(5));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function boundary(numInt) {
-  if (numInt >= 20 && numInt <= 100 && numInt === 400) {
+  if ((numInt >= 20 && numInt <= 100) || numInt === 400) {
     return true;
   } else return false;
 }
@@ -73,14 +73,16 @@ console.log(boundary(58));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 function epify(string) {
-  let string1 = "epicode" + string;
-  if (string.startsWith("epicode", 0) === true) {
-    result = string;
+  const contEpicode = string.toUpperCase().startsWith("EPICODE");
+
+  if (contEpicode) {
+    return string;
+  } else {
+    return "EPICODE" + string;
   }
-  return result;
 }
 
-console.log(epify("epicode"));
+console.log(epify("EPICODE"));
 
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
@@ -98,7 +100,7 @@ function check3and7(int) {
   return false;
 }
 
-console.log(check3and7(4));
+console.log(check3and7(203));
 
 /* ESERCIZIO 7
  Scrivi una funzione di nome "reverseString", il cui scopo è invertire una stringa fornita come parametro (es. "EPICODE" --> "EDOCIPE")
@@ -106,12 +108,41 @@ console.log(check3and7(4));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+function reverseString(string) {
+  let stringArray = string.split("");
+  let stringReversed = stringArray.reverse();
+
+  let stringJoin = stringReversed.join("");
+
+  return stringJoin;
+}
+
+console.log(reverseString("epicode"));
+
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+function upperFirst(string) {
+  const words = string.split(" ");
+
+  const arrOfNewWords = [];
+
+  for (let i = 0; i < words.length; i++) {
+    const element = words[i];
+    const firstChar = element.charAt(0);
+    const firstCharUpper = firstChar.toUpperCase();
+    const remainingLetters = element.slice(1);
+    const wordCapitalized = firstCharUpper + remainingLetters;
+    arrOfNewWords.push(wordCapitalized);
+  }
+  return arrOfNewWords;
+}
+
+console.log(upperFirst("Oggi è una belissima giornata"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
