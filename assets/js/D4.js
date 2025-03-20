@@ -166,3 +166,11 @@ console.log(cutString("Ciao a tutti"));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+function giveMeRandom(n) {
+  let number = Math.floor(Math.random() * n);
+
+  return number;
+}
+
+console.log(giveMeRandom(10));
